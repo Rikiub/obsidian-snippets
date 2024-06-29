@@ -1,0 +1,52 @@
+/* CSS Snippet made by Rikiub: https://github.com/Rikiub/ */
+
+
+.markdown-rendered .image-embed img[alt] {
+
+	/* Banner */
+	&[alt~=banner] {
+		display: block;
+		object-fit: cover;
+		width: 100%;
+		height: 125px;
+	}
+
+	/* Enabled on dekstop view */
+	@media (min-width: 550px) {
+
+		/* Resize Banner */
+		&[alt~=banner] {
+			height: 200px;
+		}
+
+		/* Left & Right */
+		&[alt~=left] {
+			float: inline-start;
+			margin-block-end: 0.5rem;
+			margin-inline-end: 1.5rem;
+		}
+
+		&[alt~=right] {
+			float: inline-end;
+			margin-block-end: 0.5rem;
+			margin-inline-start: 1.5rem;
+		}
+	}
+
+	/* Center */
+	&[alt~=center] {
+		display: block;
+		margin: auto;
+	}
+
+	/* Circle */
+  &[alt~=circle] {
+		border-radius: 50%;
+	}
+
+	/* Square */
+	&[alt~=cover] {
+		object-fit: cover;
+		aspect-ratio: 1;
+	}
+}
