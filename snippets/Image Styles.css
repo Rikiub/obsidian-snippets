@@ -1,52 +1,58 @@
 /* CSS Snippet made by Rikiub: https://github.com/Rikiub/ */
 
+.markdown-preview-view,
+.markdown-source-view {
+	/* Full page container */
+	container-type: inline-size;
 
-.markdown-rendered .image-embed img[alt] {
+	/* Properties */
+	--float-margin: 1rem;
+	--float-max-width: 50%;
+}
 
-	/* Banner */
-	&[alt~=banner] {
-		display: block;
-		object-fit: cover;
-		width: 100%;
-		height: 125px;
-	}
-
-	/* Enabled on dekstop view */
-	@media (min-width: 550px) {
-
-		/* Resize Banner */
-		&[alt~=banner] {
-			height: 200px;
-		}
-
-		/* Left & Right */
-		&[alt~=left] {
-			float: inline-start;
-			margin-block-end: 0.5rem;
-			margin-inline-end: 1.5rem;
-		}
-
-		&[alt~=right] {
-			float: inline-end;
-			margin-block-end: 0.5rem;
-			margin-inline-start: 1.5rem;
-		}
-	}
+/* Internal and external images */
+img {
 
 	/* Center */
-	&[alt~=center] {
+	&[alt~="center"] {
 		display: block;
 		margin: auto;
 	}
 
 	/* Circle */
-	&[alt~=circle] {
-		border-radius: 50%;
+	&[alt~="circle"] {
+		border-radius: 100%;
 	}
 
-	/* Square */
-	&[alt~=cover] {
+	/* Cover */
+	&[alt~="cover"] {
 		object-fit: cover;
 		aspect-ratio: 1;
 	}
+
+	/* Banner */
+	&[alt~="banner"] {
+		object-fit: cover;
+		aspect-ratio: 3 / 1;
+		width: 100%;
+		min-height: 150px;
+		max-height: 250px;
+	}
+
+	@container (min-width: 350px) {
+
+		/* Left & Right */
+		&[alt~="left"] {
+			float: inline-start;
+			margin-inline-end: var(--float-margin);
+			max-width: var(--float-max-width);
+		}
+
+		&[alt~="right"] {
+			float: inline-end;
+			margin-inline-start: var(--float-margin);
+			max-width: var(--float-max-width);
+		}
+	}
+
 }
