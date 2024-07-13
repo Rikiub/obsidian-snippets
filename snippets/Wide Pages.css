@@ -1,0 +1,11 @@
+/** Wide Pages
+- CSS Snippet made by Rikiub: https://github.com/Rikiub/
+
+## Usage
+
+In your note, write `wide-page` on `cssclasses` property.
+**/
+
+.wide-page {
+    --file-line-width: 1000px;
+}
