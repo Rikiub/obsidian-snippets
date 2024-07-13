@@ -5,7 +5,7 @@
 
 :root {
 	--columns-gap: 0 25px;
-	--columns-min-width: 200px;
+	--columns-min-width: 300px;
 }
 
 [data-callout="col"],
