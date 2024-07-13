@@ -1,58 +1,60 @@
 /* CSS Snippet made by Rikiub: https://github.com/Rikiub/ */
 
-.markdown-preview-view,
-.markdown-source-view {
+.markdown-source-view,
+.markdown-preview-view {
 	/* Full page container */
 	container-type: inline-size;
 
 	/* Properties */
 	--float-margin: 1rem;
 	--float-max-width: 50%;
-}
 
-/* Internal and external images */
-img {
+	/* Internal and external images */
+	img {
 
-	/* Center */
-	&[alt~="center"] {
-		display: block;
-		margin: auto;
-	}
+		/* Center */
+		&[alt~="center"] {
+			display: block;
+			margin: auto;
+		}
 
-	/* Circle */
-	&[alt~="circle"] {
-		border-radius: 100%;
-	}
+		/* Circle */
+		&[alt~="circle"] {
+			border-radius: 100%;
+		}
 
-	/* Cover */
-	&[alt~="cover"] {
-		object-fit: cover;
-		aspect-ratio: 1;
-	}
+		/* Cover */
+		&[alt~="cover"] {
+			object-fit: cover;
+			aspect-ratio: 1;
+		}
 
-	/* Banner */
-	&[alt~="banner"] {
-		object-fit: cover;
-		aspect-ratio: 3 / 1;
-		width: 100%;
-		min-height: 150px;
-		max-height: 250px;
+		/* Banner */
+		&[alt~="banner"] {
+			object-fit: cover;
+			aspect-ratio: 3 / 1;
+			width: 100%;
+			min-height: 150px;
+			max-height: 250px;
+		}
 	}
 
 	@container (min-width: 350px) {
 
-		/* Left & Right */
-		&[alt~="left"] {
-			float: inline-start;
-			margin-inline-end: var(--float-margin);
-			max-width: var(--float-max-width);
-		}
+		.internal-embed img {
 
-		&[alt~="right"] {
-			float: inline-end;
-			margin-inline-start: var(--float-margin);
-			max-width: var(--float-max-width);
+			/* Left & Right */
+			&[alt~="left"] {
+				float: inline-start;
+				margin-inline-end: var(--float-margin);
+				max-width: var(--float-max-width);
+			}
+
+			&[alt~="right"] {
+				float: inline-end;
+				margin-inline-start: var(--float-margin);
+				max-width: var(--float-max-width);
+			}
 		}
 	}
-
 }
