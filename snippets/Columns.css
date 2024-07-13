@@ -8,8 +8,8 @@
 	--columns-min-width: 200px;
 }
 
-div[data-callout="col"],
-div[data-callout^="col-md"] {
+[data-callout="col"],
+[data-callout^="col-md"] {
 	&.callout {
 		background: transparent;
 		padding: 0;
@@ -22,7 +22,6 @@ div[data-callout^="col-md"] {
 			display: flex;
 			flex-wrap: wrap;
 			gap: var(--columns-gap);
-			padding: 0 20px;
 
 			>.callout,
 			blockquote {
