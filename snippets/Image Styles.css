@@ -2,12 +2,12 @@
 
 .markdown-source-view,
 .markdown-preview-view {
-	/* Full page container */
-	container-type: inline-size;
-
 	/* Properties */
 	--float-margin: 1rem;
 	--float-max-width: 50%;
+	
+	/* Full page container */
+	container-type: inline-size;
 
 	/* Internal and external images */
 	img {
@@ -37,10 +37,21 @@
 			min-height: 150px;
 			max-height: 250px;
 		}
+		
+		/* Flip vertically */
+		&[alt~="flip"] {
+		  transform: scaleY(-1);
+		}
+		
+		/* Flip horizontally */
+		&[alt~="flop"] {
+		  transform: scaleX(-1);
+		}
 	}
 
 	@container (min-width: 350px) {
 
+		/* Internal images */
 		.internal-embed img {
 
 			/* Left & Right */
