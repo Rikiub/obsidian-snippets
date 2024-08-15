@@ -1,0 +1,192 @@
+/* Made by Rikiub: https://github.com/Rikiub/
+
+Fork from commit: https://github.com/kepano/obsidian-minimal/blob/4d3c90effb6b9d245b23a85691171765da5ca711/src/scss/features/cards.scss
+
+MIT License | Copyright (c) Stephan Ango (@kepano) 
+Cards snippet for Obsidian
+author: @kepano
+version: 3.0.1
+Support my work: https://github.com/sponsors/kepano
+*/
+
+:root {
+    --cards-min-width: 170px;
+    --cards-padding: 1em;
+    --cards-image-fit: contain;
+    --cards-aspect-ratio: auto;
+    --cards-columns: repeat(auto-fit, minmax(var(--cards-min-width), 1fr));
+    --cards-gap: 1rem;
+}
+
+
+/* TABLE */
+.table-cards.markdown-preview-view table:not(.dataview),
+.dataview-cards table.dataview,
+.cards table.dataview {
+
+    /* Reset */
+    background-color: transparent;
+    width: 100%;
+    border: 0;
+
+    /* Hide table headers */
+    thead {
+        display: none;
+    }
+
+    /* Layout */
+    tbody {
+        display: grid;
+        grid-template-columns: var(--cards-columns);
+        gap: var(--cards-gap);
+
+    }
+
+    /* Card container */
+    tr {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--table-background);
+        border: var(--table-border-width) solid var(--background-modifier-border);
+        border-radius: var(--radius-s);
+        margin: 0;
+
+        &:hover {
+            border-color: var(--background-modifier-border-hover);
+
+            /* Reset */
+            background-color: transparent !important;
+        }
+    }
+
+    /* Card properties style */
+    td {
+        font-size: calc(var(--table-text-size) - 0.1em);
+        color: var(--text-muted);
+        max-width: none !important;
+
+        /* Borders */
+        &:not(:last-child) {
+            border-bottom: var(--table-border-width) solid var(--background-modifier-border);
+        }
+
+        /* Clear empty fields */
+        &:empty {
+            display: none;
+        }
+
+        /* Adjust Images */
+        &:has(img) {
+            padding: 0;
+        }
+
+        img {
+            background-color: var(--table-header-background);
+            border-radius: var(--table-border-width);
+            aspect-ratio: var(--cards-aspect-ratio);
+            vertical-align: middle;
+            width: 100%;
+
+            /* Reset */
+            max-width: none !important;
+        }
+    }
+}
+
+/* TABLE: Image aspect ratio */
+.cards-1-1 {
+    --cards-aspect-ratio: 1 / 1;
+}
+
+.cards-2-1 {
+    --cards-aspect-ratio: 2 / 1;
+}
+
+.cards-2-3 {
+    --cards-aspect-ratio: 2 / 3;
+}
+
+
+
+/* LIST */
+.list-cards div>ul:not(.contains-task-list) {
+
+    /* Layout */
+    display: grid;
+    grid-template-columns: var(--cards-columns);
+    gap: var(--cards-gap);
+
+    /* Fix tasks margin */
+    .task-list-item {
+        padding-inline-start: calc(var(--cards-padding) * 1.5);
+    }
+
+    /* Card container */
+    >li {
+        background-color: var(--table-background);
+        border: var(--table-border-width) solid var(--background-modifier-border);
+        border-radius: var(--radius-s);
+        padding: var(--cards-padding);
+        margin: 0;
+        overflow: hidden;
+
+        &:hover {
+            border-color: var(--background-modifier-border-hover);
+        }
+
+        /* Remove first lists */
+        .list-bullet,
+        .list-collapse-indicator,
+        ul::before {
+            display: none;
+        }
+
+        /* Internal text */
+        li {
+            margin: 0;
+            padding: calc(var(--cards-padding) / 2) 0;
+            color: var(--text-muted);
+        }
+    }
+}
+
+
+
+/* Cards max columns */
+.cards-cols-1 {
+    --cards-columns: repeat(1, minmax(0, 1fr));
+}
+
+.cards-cols-2 {
+    --cards-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 400px) {
+    .cards-cols-3 {
+        --cards-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cards-cols-4 {
+        --cards-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .cards-cols-5 {
+        --cards-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .cards-cols-6 {
+        --cards-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .cards-cols-7 {
+        --cards-columns: repeat(7, minmax(0, 1fr));
+    }
+
+    .cards-cols-8 {
+        --cards-columns: repeat(8, minmax(0, 1fr));
+    }
+
+    .cards-cols-9 {
+        --cards-columns: repeat(9, minmax(0, 1fr));
+    }
+}
