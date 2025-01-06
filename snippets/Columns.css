@@ -4,30 +4,179 @@
 **/
 
 :root {
-	--columns-gap: 0 25px;
-	--columns-min-width: 300px;
+	--column-width: 13.5em;
+	--row-width: 20em;
+
+	--grid-gap: 1em;
+	--grid-columns: repeat(auto-fit, minmax(var(--column-width), 1fr));
+	--callout-float-margin: 2em;
+	--callout-float-max-width: 50%;
 }
 
-[data-callout="col"],
-[data-callout^="col-md"] {
-	&.callout {
-		background: transparent;
-		padding: 0;
+.markdown-source-view,
+.markdown-preview-view {
+	/* Set page container */
+	container-type: inline-size;
+}
 
-		>.callout-title {
+:is(.el-div, .markdown-rendered) {
+	[data-callout-metadata~="center"]:is(.callout-title, .callout-content) {
+		/* CENTER CALLOUT */
+		text-align: center;
+		justify-content: center;
+	}
+
+	:is(
+			[data-callout="none"],
+			[data-callout="blank"],
+			[data-callout="row"],
+			[data-callout^="column"]
+		) {
+		/* EMPTY CALLOUT */
+		/* Custom callout type to remove style */
+
+		&,
+		> .callout-content {
+			background: unset;
+			padding: unset;
+			border: unset;
+			box-shadow: unset;
+		}
+
+		> .callout-title {
 			display: none;
 		}
 
-		>.callout-content {
+		&.is-collapsible > .callout-title {
 			display: flex;
-			flex-wrap: wrap;
-			gap: var(--columns-gap);
+			color: unset;
 
-			>.callout,
-			blockquote {
-				flex-grow: 1;
-				flex-basis: var(--columns-min-width);
+			/* Align with other callouts */
+			margin: var(--callout-padding);
+			margin-left: 0;
+			margin-bottom: 0;
+
+			.callout-icon {
+				display: none;
 			}
 		}
+	}
+
+	:is([data-callout^="column"], [data-callout="row"]).callout {
+		/* CALLOUT LAYOUT */
+
+		@container (min-width: 460px) {
+			/* Base (Enabled only on desktop) */
+
+			> .callout-content {
+				display: grid;
+			}
+
+			> .callout-content > .callout {
+				/* Remove callouts margin */
+				margin: 0;
+
+				&.is-collapsed {
+					/* Fix collapsed callouts */
+					align-self: self-start;
+				}
+
+				/* SPAN CONTROL */
+				&[data-callout-metadata~="span-2"] {
+					grid-column: span 2;
+				}
+
+				&[data-callout-metadata~="span-3"] {
+					grid-column: span 3;
+				}
+
+				&[data-callout-metadata~="span-4"] {
+					grid-column: span 4;
+				}
+
+				&[data-callout-metadata~="span-5"] {
+					grid-column: span 5;
+				}
+
+				&[data-callout-metadata~="span-full"] {
+					grid-column: 1 / -1;
+				}
+			}
+		}
+
+		&[data-callout^="column"] {
+			/* Callouts side by side */
+
+			/* Fixed columns */
+			&[data-callout="column-1"] {
+				--grid-columns: repeat(1, 1fr);
+			}
+
+			&[data-callout="column-2"] {
+				--grid-columns: repeat(2, 1fr);
+
+				> .callout-content {
+					/* Enabled on mobile */
+					display: grid;
+				}
+			}
+
+			&[data-callout="column-3"] {
+				--grid-columns: repeat(3, 1fr);
+			}
+
+			&[data-callout="column-4"] {
+				--grid-columns: repeat(4, 1fr);
+			}
+
+			&[data-callout="column-5"] {
+				--grid-columns: repeat(5, 1fr);
+			}
+
+			/* Base */
+			> .callout-content {
+				grid-template-columns: var(--grid-columns);
+				gap: var(--grid-gap);
+			}
+		}
+
+		&[data-callout="row"] > .callout-content {
+			/* Callouts as horizontal row with scroll bar */
+
+			display: grid;
+			grid-auto-columns: var(--row-width);
+			grid-auto-flow: column;
+			gap: var(--grid-gap);
+		}
+	}
+}
+
+@container (min-width: 460px) {
+	.el-div
+		> :is([data-callout-metadata~="left"], [data-callout-metadata~="right"]) {
+		/* CALLOUTS FLOAT */
+
+		width: min-content;
+		min-width: 17em;
+		max-width: var(--callout-float-max-width);
+		margin-top: 0;
+
+		&[data-callout-metadata~="left"] {
+			float: left;
+			margin-right: var(--callout-float-margin);
+		}
+
+		&[data-callout-metadata~="right"] {
+			float: right;
+			margin-left: var(--callout-float-margin);
+		}
+	}
+
+	.list-columns .el-ul > .has-list-bullet {
+		/* LIST COLUMNS */
+
+		display: grid;
+		grid-template-columns: var(--grid-columns);
+		gap: var(--grid-gap);
 	}
 }

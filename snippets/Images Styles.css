@@ -1,0 +1,126 @@
+/* CSS Snippet made by Rikiub: https://github.com/Rikiub/ */
+
+:root {
+	/* Properties */
+	--image-float-margin: 1em;
+	--image-float-max-width: 50%;
+}
+
+.markdown-source-view,
+.markdown-preview-view {
+	/* Full page container */
+	container-type: inline-size;
+
+	img {
+		/* Internal and external images */
+
+		/* SHAPES */
+		&[alt~="center"] {
+			display: block;
+			margin: auto;
+		}
+
+		&[alt~="circle"] {
+			border-radius: 100%;
+		}
+
+		&[alt~="square"] {
+			object-fit: cover;
+			aspect-ratio: 1;
+		}
+
+		&[alt~="banner"] {
+			object-fit: cover;
+			width: 100%;
+			aspect-ratio: 3 / 1;
+
+			@container (min-width: 750px) {
+				aspect-ratio: 3.5 / 1;
+			}
+		}
+
+		/* POSITION */
+		&[alt~="align-top"] {
+			object-position: top;
+		}
+
+		&[alt~="align-right"] {
+			object-position: right;
+		}
+
+		&[alt~="align-bottom"] {
+			object-position: bottom;
+		}
+
+		&[alt~="align-left"] {
+			object-position: left;
+		}
+
+		&[alt~="align-top-right"] {
+			object-position: top right;
+		}
+
+		&[alt~="align-top-left"] {
+			object-position: top left;
+		}
+
+		&[alt~="align-bottom-right"] {
+			object-position: bottom right;
+		}
+
+		&[alt~="align-bottom-left"] {
+			object-position: bottom left;
+		}
+
+		/* FLIP */
+		&[alt~="flip"] {
+			/* Flip vertically */
+			transform: scaleY(-1);
+		}
+
+		&[alt~="flop"] {
+			/* Flip horizontally */
+			transform: scaleX(-1);
+		}
+
+		&[alt~="flip"][alt~="flop"],
+		&[alt~="flop"][alt~="flip"] {
+			/* Flip vertically and horizontally */
+			transform: scaleY(-1) scaleX(-1);
+		}
+	}
+
+	.internal-embed.image-embed {
+		/* Internal images only */
+
+		&[alt~="right"] {
+			/* Fallback on mobile */
+			display: flex;
+			justify-content: right;
+		}
+
+		@container (min-width: 440px) {
+			&[alt~="right"] {
+				/* Fallback on mobile */
+				display: block;
+			}
+
+			&:is([alt~="left"], [alt~="right"]) img {
+				/* Left & Right */
+
+				max-width: var(--image-float-max-width);
+				margin-bottom: var(--image-float-margin);
+
+				&[alt~="left"] {
+					float: left;
+					margin-right: var(--image-float-margin);
+				}
+
+				&[alt~="right"] {
+					float: right;
+					margin-left: var(--image-float-margin);
+				}
+			}
+		}
+	}
+}
