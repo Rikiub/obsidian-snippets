@@ -19,61 +19,106 @@
 	container-type: inline-size;
 }
 
-:is(.el-div, .markdown-rendered) {
-	[data-callout-metadata~="center"]:is(.callout-title, .callout-content) {
-		/* CENTER CALLOUT */
-		text-align: center;
-		justify-content: center;
+[data-callout-metadata~="center"]:is(.callout-title, .callout-content) {
+	/* CENTER CALLOUT */
+	text-align: center;
+	justify-content: center;
+}
+
+:is(
+		[data-callout="none"],
+		[data-callout="blank"],
+		[data-callout="row"],
+		[data-callout^="column"]
+	) {
+	/* EMPTY CALLOUT */
+	/* Custom callout type to remove style */
+
+	&,
+	> .callout-content {
+		background: unset;
+		padding: unset;
+		border: unset;
+		box-shadow: unset;
 	}
 
-	:is(
-			[data-callout="none"],
-			[data-callout="blank"],
-			[data-callout="row"],
-			[data-callout^="column"]
-		) {
-		/* EMPTY CALLOUT */
-		/* Custom callout type to remove style */
+	> .callout-title {
+		display: none;
+	}
 
-		&,
-		> .callout-content {
-			background: unset;
-			padding: unset;
-			border: unset;
-			box-shadow: unset;
-		}
+	&.is-collapsible > .callout-title {
+		display: flex;
+		color: unset;
 
-		> .callout-title {
+		/* Align with other callouts */
+		margin: var(--callout-padding);
+		margin-left: 0;
+		margin-bottom: 0;
+
+		.callout-icon {
 			display: none;
 		}
+	}
+}
 
-		&.is-collapsible > .callout-title {
-			display: flex;
-			color: unset;
+[data-callout="row"].callout > .callout-content {
+	/* Callouts as horizontal row with scroll bar */
 
-			/* Align with other callouts */
-			margin: var(--callout-padding);
-			margin-left: 0;
-			margin-bottom: 0;
+	display: grid;
+	grid-auto-columns: var(--row-width);
+	grid-auto-flow: column;
+	gap: var(--grid-gap);
 
-			.callout-icon {
-				display: none;
-			}
+	> .is-collapsed {
+		/* Fix collapsed callouts */
+		align-self: self-start;
+	}
+
+	> .callout {
+		/* Remove margin */
+		margin: 0;
+	}
+}
+
+[data-callout^="column"].callout {
+	/* Callouts side by side */
+
+	/* Fixed columns */
+	&[data-callout$="-1"] {
+		--grid-columns: repeat(1, 1fr);
+	}
+
+	&[data-callout$="-2"] {
+		--grid-columns: repeat(2, 1fr);
+
+		> .callout-content {
+			/* Enabled on mobile */
+			display: grid;
 		}
 	}
 
-	:is([data-callout^="column"], [data-callout="row"]).callout {
-		/* CALLOUT LAYOUT */
+	&[data-callout$="-3"] {
+		--grid-columns: repeat(3, 1fr);
+	}
+
+	&[data-callout$="-4"] {
+		--grid-columns: repeat(4, 1fr);
+	}
+
+	&[data-callout$="-5"] {
+		--grid-columns: repeat(5, 1fr);
+	}
+
+	/* Base */
+	> .callout-content {
+		grid-template-columns: var(--grid-columns);
+		gap: var(--grid-gap);
 
 		@container (min-width: 460px) {
-			/* Base (Enabled only on desktop) */
+			display: grid;
 
-			> .callout-content {
-				display: grid;
-			}
-
-			> .callout-content > .callout {
-				/* Remove callouts margin */
+			> .callout {
+				/* Remove margin */
 				margin: 0;
 
 				&.is-collapsed {
@@ -103,57 +148,12 @@
 				}
 			}
 		}
-
-		&[data-callout^="column"] {
-			/* Callouts side by side */
-
-			/* Fixed columns */
-			&[data-callout="column-1"] {
-				--grid-columns: repeat(1, 1fr);
-			}
-
-			&[data-callout="column-2"] {
-				--grid-columns: repeat(2, 1fr);
-
-				> .callout-content {
-					/* Enabled on mobile */
-					display: grid;
-				}
-			}
-
-			&[data-callout="column-3"] {
-				--grid-columns: repeat(3, 1fr);
-			}
-
-			&[data-callout="column-4"] {
-				--grid-columns: repeat(4, 1fr);
-			}
-
-			&[data-callout="column-5"] {
-				--grid-columns: repeat(5, 1fr);
-			}
-
-			/* Base */
-			> .callout-content {
-				grid-template-columns: var(--grid-columns);
-				gap: var(--grid-gap);
-			}
-		}
-
-		&[data-callout="row"] > .callout-content {
-			/* Callouts as horizontal row with scroll bar */
-
-			display: grid;
-			grid-auto-columns: var(--row-width);
-			grid-auto-flow: column;
-			gap: var(--grid-gap);
-		}
 	}
 }
 
 @container (min-width: 460px) {
-	.el-div
-		> :is([data-callout-metadata~="left"], [data-callout-metadata~="right"]) {
+	[data-callout-metadata~="left"],
+	[data-callout-metadata~="right"] {
 		/* CALLOUTS FLOAT */
 
 		width: min-content;
