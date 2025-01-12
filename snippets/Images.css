@@ -2,8 +2,9 @@
 
 :root {
 	/* Properties */
-	--image-float-margin: 1em;
+	--image-default-width: 50%;
 	--image-float-max-width: 50%;
+	--image-float-margin: 1em;
 }
 
 .markdown-source-view,
@@ -14,32 +15,42 @@
 	img {
 		/* Internal and external images */
 
-		/* SHAPES */
+		/** SHAPES **/
 		&[alt~="center"] {
+			/* Center */
 			display: block;
 			margin: auto;
 		}
 
+		&[alt~="round"],
 		&[alt~="circle"] {
+			/* Circle */
 			border-radius: 100%;
 		}
 
+		&[alt~="circle"],
 		&[alt~="square"] {
+			/* Square */
 			object-fit: cover;
 			aspect-ratio: 1;
+
+			&:not([width]) {
+				width: var(--image-default-width);
+			}
 		}
 
 		&[alt~="banner"] {
+			/* Rectangle/Banner */
 			object-fit: cover;
-			width: 100%;
 			aspect-ratio: 3 / 1;
+			width: 100%;
 
 			@container (min-width: 750px) {
 				aspect-ratio: 3.5 / 1;
 			}
 		}
 
-		/* POSITION */
+		/** POSITION **/
 		&[alt~="align-top"] {
 			object-position: top;
 		}
@@ -72,7 +83,7 @@
 			object-position: bottom left;
 		}
 
-		/* FLIP */
+		/** FLIP **/
 		&[alt~="flip"] {
 			/* Flip vertically */
 			transform: scaleY(-1);

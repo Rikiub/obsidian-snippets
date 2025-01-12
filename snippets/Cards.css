@@ -115,9 +115,8 @@ Support my work: https://github.com/sponsors/kepano
 }
 
 /* LIST */
-.list-cards
-	.markdown-preview-section
-	> .el-ul
+.list-cards.markdown-preview-view
+	.el-ul
 	> .has-list-bullet:not(.contains-task-list) {
 	/* Layout */
 
