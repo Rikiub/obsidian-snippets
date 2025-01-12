@@ -4,11 +4,15 @@
 **/
 
 :root {
-	--column-width: 13.5em;
-	--row-width: 20em;
+	--callout-grid-columns: repeat(
+		auto-fit,
+		minmax(var(--callout-grid-width), 1fr)
+	);
 
-	--grid-gap: 1em;
-	--grid-columns: repeat(auto-fit, minmax(var(--column-width), 1fr));
+	--callout-grid-width: 13.5em;
+	--callout-row-width: 20em;
+	--callout-grid-gap: 1em;
+
 	--callout-float-margin: 2em;
 	--callout-float-max-width: 50%;
 }
@@ -19,7 +23,7 @@
 	container-type: inline-size;
 }
 
-[data-callout-metadata~="center"]:is(.callout-title, .callout-content) {
+[data-callout-metadata~="center"] :is(.callout-title, .callout-content) {
 	/* CENTER CALLOUT */
 	text-align: center;
 	justify-content: center;
@@ -29,9 +33,9 @@
 		[data-callout="none"],
 		[data-callout="blank"],
 		[data-callout="row"],
-		[data-callout^="column"]
+		[data-callout^="grid"]
 	) {
-	/* EMPTY CALLOUT */
+	/* BLANK CALLOUT */
 	/* Custom callout type to remove style */
 
 	&,
@@ -65,9 +69,9 @@
 	/* Callouts as horizontal row with scroll bar */
 
 	display: grid;
-	grid-auto-columns: var(--row-width);
+	grid-auto-columns: var(--callout-row-width);
 	grid-auto-flow: column;
-	gap: var(--grid-gap);
+	gap: var(--callout-grid-gap);
 
 	> .is-collapsed {
 		/* Fix collapsed callouts */
@@ -80,16 +84,16 @@
 	}
 }
 
-[data-callout^="column"].callout {
+[data-callout^="grid"].callout {
 	/* Callouts side by side */
 
 	/* Fixed columns */
-	&[data-callout$="-1"] {
-		--grid-columns: repeat(1, 1fr);
+	&[data-callout="grid-1"] {
+		--callout-grid-columns: repeat(1, 1fr);
 	}
 
-	&[data-callout$="-2"] {
-		--grid-columns: repeat(2, 1fr);
+	&[data-callout="grid-2"] {
+		--callout-grid-columns: repeat(2, 1fr);
 
 		> .callout-content {
 			/* Enabled on mobile */
@@ -97,22 +101,22 @@
 		}
 	}
 
-	&[data-callout$="-3"] {
-		--grid-columns: repeat(3, 1fr);
+	&[data-callout="grid-3"] {
+		--callout-grid-columns: repeat(3, 1fr);
 	}
 
-	&[data-callout$="-4"] {
-		--grid-columns: repeat(4, 1fr);
+	&[data-callout="grid-4"] {
+		--callout-grid-columns: repeat(4, 1fr);
 	}
 
-	&[data-callout$="-5"] {
-		--grid-columns: repeat(5, 1fr);
+	&[data-callout="grid-5"] {
+		--callout-grid-columns: repeat(5, 1fr);
 	}
 
 	/* Base */
 	> .callout-content {
-		grid-template-columns: var(--grid-columns);
-		gap: var(--grid-gap);
+		grid-template-columns: var(--callout-grid-columns);
+		gap: var(--callout-grid-gap);
 
 		@container (min-width: 460px) {
 			display: grid;
@@ -172,11 +176,11 @@
 		}
 	}
 
-	.list-columns .el-ul > .has-list-bullet {
+	.list-grid .el-ul > .has-list-bullet {
 		/* LIST COLUMNS */
 
 		display: grid;
-		grid-template-columns: var(--grid-columns);
-		gap: var(--grid-gap);
+		grid-template-columns: var(--callout-grid-columns);
+		gap: var(--callout-grid-gap);
 	}
 }

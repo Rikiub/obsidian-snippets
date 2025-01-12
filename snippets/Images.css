@@ -2,7 +2,6 @@
 
 :root {
 	/* Properties */
-	--image-default-width: 50%;
 	--image-float-max-width: 50%;
 	--image-float-margin: 1em;
 }
@@ -35,7 +34,7 @@
 			aspect-ratio: 1;
 
 			&:not([width]) {
-				width: var(--image-default-width);
+				width: 400px;
 			}
 		}
 

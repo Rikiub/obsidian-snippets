@@ -6,7 +6,7 @@
 In your note, write `wide` on `cssclasses` property.
 **/
 
-.wide-page {
+.wide {
 	--file-line-width: 100%;
 }
 
