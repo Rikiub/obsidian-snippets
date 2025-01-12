@@ -13,11 +13,11 @@ export default defineConfig({
 			{ text: "Installation", link: "/installation" },
 			{
 				text: "Columns",
-				items: [{ text: "Basic", link: "/columns/basic" }],
+				items: [{ text: "Basic", link: "/grid/basic" }],
 			},
 			{
 				text: "Images",
-				items: [{ text: "Shapes", link: "/images/shapes" }],
+				items: [{ text: "Shapes", link: "/image/shapes" }],
 			},
 			{
 				text: "Wides",
@@ -29,7 +29,7 @@ export default defineConfig({
 		],
 
 		socialLinks: [
-			{ icon: "github", link: "https://github.com/vuejs/vitepress" },
+			{ icon: "github", link: "https://github.com/Rikiub/obsidian-snippets" },
 		],
 	},
 });
