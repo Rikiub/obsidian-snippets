@@ -156,8 +156,10 @@
 }
 
 @container (min-width: 460px) {
-	.callout[data-callout-metadata~="left"],
-	.callout[data-callout-metadata~="right"] {
+	.callout:is(
+			[data-callout-metadata~="left"],
+			[data-callout-metadata~="right"]
+		) {
 		/* CALLOUTS FLOAT */
 
 		width: min-content;

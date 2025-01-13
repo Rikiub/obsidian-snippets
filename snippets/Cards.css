@@ -131,7 +131,7 @@ Support my work: https://github.com/sponsors/kepano
 
 	.list-bullet,
 	.list-collapse-indicator,
-	ul::before,
+	.has-list-bullet::before,
 	li::before {
 		/* Remove bullet list indicator */
 		display: none !important;
