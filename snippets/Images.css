@@ -81,23 +81,6 @@
 		&[alt~="align-bottom-left"] {
 			object-position: bottom left;
 		}
-
-		/** FLIP **/
-		&[alt~="flip"] {
-			/* Flip vertically */
-			transform: scaleY(-1);
-		}
-
-		&[alt~="flop"] {
-			/* Flip horizontally */
-			transform: scaleX(-1);
-		}
-
-		&[alt~="flip"][alt~="flop"],
-		&[alt~="flop"][alt~="flip"] {
-			/* Flip vertically and horizontally */
-			transform: scaleY(-1) scaleX(-1);
-		}
 	}
 
 	.internal-embed.image-embed {

@@ -165,6 +165,7 @@
 		width: min-content;
 		min-width: 17em;
 		max-width: var(--callout-float-max-width);
+
 		margin-top: 0;
 
 		&[data-callout-metadata~="left"] {
