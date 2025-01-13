@@ -5,7 +5,7 @@ export default defineConfig({
 	title: "Rikiub Snippets",
 	description: "CSS utilities for Obsidian",
 
-	base: "/obsidian-snippets/"
+	base: "/obsidian-snippets/",
 
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
