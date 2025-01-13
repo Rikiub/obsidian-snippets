@@ -4,14 +4,14 @@
 **/
 
 :root {
+	--callout-grid-gap: 1em;
+	--callout-grid-width: 13.5em;
+	--callout-row-width: 20em;
+
 	--callout-grid-columns: repeat(
 		auto-fit,
 		minmax(var(--callout-grid-width), 1fr)
 	);
-
-	--callout-grid-width: 13.5em;
-	--callout-row-width: 20em;
-	--callout-grid-gap: 1em;
 
 	--callout-float-margin: 2em;
 	--callout-float-max-width: 50%;
