@@ -1,49 +1,6 @@
-<style>
-    :root {
-        --image-float-margin: .8em;
-        --image-float-max-width: 50%;
-    }
-
-    img {
-        width: 300px;
-        height: auto;
-    }
-
-    .circle,
-    .square {
-        aspect-ratio: 1;
-        object-fit: cover;
-    }
-
-    .circle,
-    .round {
-        border-radius: 100%;
-    }
-
-    .banner {
-        width: 100%;
-        object-fit: cover;
-        aspect-ratio: 3 / 1;
-    }
-
-    .center {
-        display: block;
-        margin: auto;
-        width: 300px;
-    }
-
-    .left {
-        float: left;
-        margin-right: var(--image-float-margin);
-        margin-bottom: var(--image-float-margin);
-    }
-
-    .right {
-        float: right;
-        margin-left: var(--image-float-margin);
-        margin-bottom: var(--image-float-margin);
-    }
-</style>
+<script setup>
+    import "./styles.css";
+</script>
 
 # Image Shapes
 
@@ -53,14 +10,14 @@ To apply, in your embedded images add a vertical slash (`|`) a write your desire
 
 | Attribute | Example |
 | :--: | -- |
-| `Original Image` | <img src="./your-image.png"> |
+| `Original Image` | <img src="./image.png"> |
 | | |
-| [`square`](#square) | <img src="./your-image.png" class="square"> |
+| [`square`](#square) | <img src="./image.png" class="square"> |
 | | |
-| [`round`](#rounded) | <img src="./your-image.png" class="round"> |
-| [`circle`](#rounded) | <img src="./your-image.png" class="circle"> |
+| [`round`](#rounded) | <img src="./image.png" class="round"> |
+| [`circle`](#rounded) | <img src="./image.png" class="circle"> |
 | | |
-| [`banner`](#banner) | <img src="./your-image.png" class="banner"> |
+| [`banner`](#banner) | <img src="./image.png" class="banner"> |
 | | |
 | [`center`](#center) | Align image to center |
 | [`left`](#left) | Align image to left |
@@ -71,13 +28,15 @@ To apply, in your embedded images add a vertical slash (`|`) a write your desire
 
 > Key: `square`
 
-<img src="./your-image.png" class="square">
+<img src="./image.png" class="square">
+
+Force image to keep a square shape.
 
 ## Rounded
 
 > Key: `round`
 
-<img src="./your-image.png" class="round">
+<img src="./image.png" class="round">
 
 > Rounded shape respecting width and height.
 
@@ -85,7 +44,7 @@ To apply, in your embedded images add a vertical slash (`|`) a write your desire
 
 > Key: `circle`
 
-<img src="./your-image.png" class="circle">
+<img src="./image.png" class="circle">
 
 > Combination between [round](#rounded) and [square](#square).
 
@@ -93,23 +52,27 @@ To apply, in your embedded images add a vertical slash (`|`) a write your desire
 
 > Key: `banner`
 
-<img src="./your-image.png" class="banner">
+<img src="./image.png" class="banner">
 
 > Rectangle shape with full width.
 
-## Align
-
-### Center
+## Center
 
 > Key: `center`
 
-<img src="./your-image.png" class="center">
+<img src="./image.png" class="center">
+
+## Left and Right
+
+::: warning
+Only works in **reading view** because **live preview** is tricky.
+:::
 
 ### Left
 
 > Key: `left`
 
-<img src="./your-image.png" class="left">
+<img src="./image.png" class="left">
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan elementum viverra. Morbi non accumsan tortor. Vivamus et neque purus. Ut gravida ut ligula sit amet congue. Sed malesuada augue at dui feugiat, auctor lobortis orci finibus.
 
@@ -119,7 +82,7 @@ Quisque malesuada feugiat mi, eu laoreet purus auctor vitae. Lorem ipsum dolor s
 
 > Key: `right`
 
-<img src="./your-image.png" class="right">
+<img src="./image.png" class="right">
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan elementum viverra. Morbi non accumsan tortor. Vivamus et neque purus. Ut gravida ut ligula sit amet congue. Sed malesuada augue at dui feugiat, auctor lobortis orci finibus.
 

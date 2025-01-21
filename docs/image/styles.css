@@ -1,0 +1,44 @@
+:root {
+	--image-float-margin: .8em;
+	--image-float-max-width: 50%;
+}
+
+img {
+	width: 300px;
+	height: auto;
+}
+
+.circle,
+.square {
+	aspect-ratio: 1;
+	object-fit: cover;
+}
+
+.circle,
+.round {
+	border-radius: 100%;
+}
+
+.banner {
+	width: 100%;
+	object-fit: cover;
+	aspect-ratio: 3 / 1;
+}
+
+.center {
+	display: block;
+	margin: auto;
+	width: 300px;
+}
+
+.left {
+	float: left;
+	margin-right: var(--image-float-margin);
+	margin-bottom: var(--image-float-margin);
+}
+
+.right {
+	float: right;
+	margin-left: var(--image-float-margin);
+	margin-bottom: var(--image-float-margin);
+}

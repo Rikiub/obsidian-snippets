@@ -6,6 +6,7 @@ export default defineConfig({
 	description: "CSS utilities for Obsidian",
 
 	base: "/obsidian-snippets/",
+	cleanUrls: true,
 
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
@@ -14,8 +15,18 @@ export default defineConfig({
 			{ text: "Introduction", link: "/" },
 			{ text: "Installation", link: "/installation" },
 			{
-				text: "Columns",
-				items: [{ text: "Basic", link: "/grid/basic" }],
+				text: "Callouts",
+				items: [
+					{
+						text: "Grid",
+						link: "/callout/grid/basic",
+						collapsed: true,
+						items: [
+							{ text: "Basic", link: "/callout/grid/basic" },
+							{ text: "Advanced", link: "/callout/grid/advanced" },
+						],
+					},
+				],
 			},
 			{
 				text: "Images",
