@@ -6,11 +6,15 @@ authorUrl: https://github.com/Rikiub
 license: MIT
 */
 
-:root {
-	/* Properties */
+/* Properties */
+body {
 	--image-align-max-width: 50%;
 	--image-align-margin: 0.6em;
-	--image-align-placeholder: "↕";
+	
+	--image-align-placeholder-icon: "⇆";
+	--image-align-placeholder-color: var(--color-accent);
+	--image-align-placeholder-color-active: var(--color-accent-2);
+	
 	--image-default-width: 340px;
 	--image-banner-width-ratio: 3;
 }
@@ -157,25 +161,41 @@ license: MIT
 			margin-left: var(--image-align-margin);
 		}
 
-		/* Ghost Placeholder for Live Preview Floats */
+		/* Ghost Placeholder for Live Preview Line */
 		&.markdown-source-view {
 
-			.cm-line:has(img[alt~="left"], img[alt~="right"])::after {
-				content: var(--image-align-placeholder);
-				color: var(--color-accent);
-				font-size: 1rem;
-				opacity: 0.5;
-				margin-left: 10px;
+			/* Left */
+			.cm-line:has(img[alt~="left"]) {
+				&::before {
+					content: var(--image-align-placeholder-icon);
+					color: var(--image-align-placeholder-color);
+	
+					/* Prevents the cursor from getting stuck on the placeholder text */
+					user-select: none;
+					pointer-events: none;
+				}
 
-				/* Prevents the cursor from getting stuck on the ghost text */
-				user-select: none;
-				pointer-events: none;
+				/* Highlight the placeholder text when the user's cursor is actively on that line */
+				&.cm-active::before {
+					color: var(--image-align-placeholder-color-active);
+				}
 			}
 
-			/* Highlight the ghost text when the user's cursor is actively on that line */
-			.cm-active:has(img[alt~="left"], img[alt~="right"])::after {
-				opacity: 1;
-				color: var(--text-muted);
+			/* Right */
+			.cm-line:has(img[alt~="right"]) {
+				&::after {
+					content: var(--image-align-placeholder-icon);
+					color: var(--image-align-placeholder-color);
+	
+					/* Prevents the cursor from getting stuck on the placeholder text */
+					user-select: none;
+					pointer-events: none;
+				}
+
+				/* Highlight the placeholder text when the user's cursor is actively on that line */
+				&.cm-active::after {
+					color: var(--image-align-placeholder-color-active);
+				}
 			}
 		}
 	}
