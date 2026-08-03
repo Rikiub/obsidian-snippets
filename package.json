@@ -1,3 +1,11 @@
 {
-    "name": "project"
+    "name": "project",
+    "type": "module",
+    "scripts": {
+        "sync": "syncdir snippets/src/active tests-vault/.obsidian/snippets",
+        "dev": "syncdir -w snippets/src/active tests-vault/.obsidian/snippets"
+    },
+    "devDependencies": {
+        "sync-directory": "^6.0.5"
+    }
 }
