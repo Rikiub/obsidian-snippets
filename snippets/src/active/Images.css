@@ -10,6 +10,7 @@ license: MIT
 	/* Properties */
 	--image-align-max-width: 50%;
 	--image-align-margin: 0.6em;
+	--image-align-placeholder: "↕";
 	--image-default-width: 340px;
 	--image-banner-width-ratio: 3;
 }
@@ -74,7 +75,7 @@ license: MIT
 		}
 
 		&:not([width]) {
-			width: 9999px !important;
+			width: 100% !important;
 		}
 	}
 
@@ -121,17 +122,14 @@ license: MIT
 	/** ALIGNMENT */
 
 	/* Center */
-	& {
+	&.markdown-preview-view img[alt~="center"],
+	&.markdown-source-view .image-embed:has(img[alt~="center"]) .image-wrapper {
+		display: block;
+		margin: auto;
+	}
 
-		&.markdown-preview-view img[alt~="center"],
-		&.markdown-source-view .image-embed:has(img[alt~="center"]) .image-wrapper {
-			display: block;
-			margin: auto;
-		}
-
-		&.markdown-source-view .image-embed:has(img[alt~="center"]) {
-			width: 100%;
-		}
+	&.markdown-source-view .image-embed:has(img[alt~="center"]) {
+		width: 100%;
 	}
 
 	/* Left & Right */
@@ -163,11 +161,11 @@ license: MIT
 		&.markdown-source-view {
 
 			.cm-line:has(img[alt~="left"], img[alt~="right"])::after {
-				content: "⚓";
-				color: var(--text-faint);
-				font-size: 0.85em;
-				margin-left: 10px;
+				content: var(--image-align-placeholder);
+				color: var(--color-accent);
+				font-size: 1rem;
 				opacity: 0.5;
+				margin-left: 10px;
 
 				/* Prevents the cursor from getting stuck on the ghost text */
 				user-select: none;
