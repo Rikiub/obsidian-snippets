@@ -23,8 +23,6 @@ importers:
         specifier: ^0.34.5
         version: 0.34.5
 
-  snippets: {}
-
 packages:
 
   '@astrojs/compiler-binding-darwin-arm64@0.3.2':

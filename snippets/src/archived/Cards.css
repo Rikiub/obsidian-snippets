@@ -1,12 +1,14 @@
-/* Made by Rikiub: https://github.com/Rikiub/
+/* @metadata
+description: Convert tables and lists in pretty cards.
+author: Rikiub
+version: 1.0.0
+authorUrl: https://github.com/Rikiub
+license: MIT
+*/
 
-Fork from commit: https://github.com/kepano/obsidian-minimal/blob/4d3c90effb6b9d245b23a85691171765da5ca711/src/scss/features/cards.scss
-
-MIT License | Copyright (c) Stephan Ango (@kepano) 
-Cards snippet for Obsidian
-author: @kepano
-version: 3.0.1
-Support my work: https://github.com/sponsors/kepano
+/* 
+Inspired by "Cards Snippet" of Kepano
+Commit: https://github.com/kepano/obsidian-minimal/blob/4d3c90effb6b9d245b23a85691171765da5ca711/src/scss/features/cards.scss
 */
 
 :root {
@@ -86,8 +88,7 @@ Support my work: https://github.com/sponsors/kepano
 		&:has(img) {
 			/* Adjust Images */
 			padding: 0;
-
-     aspect-ratio: var(--cards-table-aspect-ratio);
+	 		aspect-ratio: var(--cards-table-aspect-ratio);
 		}
 
 		img {
@@ -97,8 +98,8 @@ Support my work: https://github.com/sponsors/kepano
 			vertical-align: middle;
 			width: 100%;
 
-     aspect-ratio: var(--cards-table-aspect-ratio);
-     object-fit: var(--cards-table-fit);
+			aspect-ratio: var(--cards-table-aspect-ratio);
+			object-fit: var(--cards-table-fit);
 
 			/* Reset */
 			max-width: none !important;
