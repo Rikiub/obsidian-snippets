@@ -1,0 +1,48 @@
+/* @metadata
+description: Embed links styles.
+author: Rikiub
+version: 1.0.0
+authorUrl: https://github.com/Rikiub
+license: MIT
+*/
+
+:is(.markdown-source-view, .markdown-preview-view) .internal-embed {
+	&[alt*="clean"],
+	&[alt*="no-header"] {
+		/* Remove header and filename */
+
+		> .bases-header,
+		> .embed-title,
+		&[data-type="heading"] .mod-header + div {
+			display: none;
+		}
+
+		> .markdown-embed-content {
+			border: unset;
+		}
+	}
+
+	&[alt*="clean"] {
+		/* Remove all */
+
+		background: unset;
+		padding: unset;
+
+		&,
+		.canvas-minimap {
+			border: unset;
+			border-radius: unset;
+		}
+
+		> .markdown-embed-content,
+		> .markdown-embed-content > .markdown-preview-view {
+			padding: 0;
+			max-height: unset;
+			scrollbar-width: none;
+		}
+
+		> .markdown-embed-link {
+			display: none;
+		}
+	}
+}

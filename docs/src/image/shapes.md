@@ -8,21 +8,21 @@ To apply, in your embedded images add a vertical slash (`|`) a write your desire
 
 ## TL;DR
 
-| Attribute | Example |
-| :--: | -- |
-| `Original Image` | <img src="./image.png"> |
-| | |
-| [`square`](#square) | <img src="./image.png" class="square"> |
-| | |
-| [`round`](#rounded) | <img src="./image.png" class="round"> |
-| [`circle`](#rounded) | <img src="./image.png" class="circle"> |
-| | |
-| [`banner`](#banner) | <img src="./image.png" class="banner"> |
-| | |
-| [`center`](#center) | Align image to center |
-| [`left`](#left) | Align image to left |
-| [`right`](#right)  | Align image to right |
-| <p style="margin: 0 75px"></p>  | |
+|           Attribute            | Example                                |
+| :----------------------------: | -------------------------------------- |
+|        `Original Image`        | <img src="./image.png">                |
+|                                |                                        |
+|      [`square`](#square)       | <img src="./image.png" class="square"> |
+|                                |                                        |
+|      [`round`](#rounded)       | <img src="./image.png" class="round">  |
+|      [`circle`](#rounded)      | <img src="./image.png" class="circle"> |
+|                                |                                        |
+|      [`banner`](#banner)       | <img src="./image.png" class="banner"> |
+|                                |                                        |
+|      [`center`](#center)       | Align image to center                  |
+|        [`left`](#left)         | Align image to left                    |
+|       [`right`](#right)        | Align image to right                   |
+| <p style="margin: 0 75px"></p> |                                        |
 
 ## Square
 

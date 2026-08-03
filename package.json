@@ -1,11 +1,3 @@
 {
-	"type": "module",
-	"devDependencies": {
-		"vitepress": "^1.5.0"
-	},
-	"scripts": {
-		"dev": "vitepress dev docs/",
-		"build": "vitepress build docs/",
-		"preview": "vitepress preview docs/"
-	}
+    "name": "project"
 }

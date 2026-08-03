@@ -1,0 +1,16 @@
+/* @metadata
+description: Note width resizers.
+author: Rikiub
+version: 1.0.0
+authorUrl: https://github.com/Rikiub
+license: MIT
+*/
+
+.wide {
+	--file-line-width: 100%;
+}
+
+.wide-table .el-table > table {
+	width: 100%;
+	margin-inline: auto;
+}

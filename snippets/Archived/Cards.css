@@ -13,7 +13,8 @@ Support my work: https://github.com/sponsors/kepano
 	--cards-list-width: 13.5em;
 
 	--cards-table-width: 10em;
-	--cards-table-aspect-ratio: auto;
+	--cards-table-aspect-ratio: 1;
+	--cards-table-fit: cover;
 
 	--cards-margin: 1em;
 }
@@ -85,15 +86,19 @@ Support my work: https://github.com/sponsors/kepano
 		&:has(img) {
 			/* Adjust Images */
 			padding: 0;
+
+     aspect-ratio: var(--cards-table-aspect-ratio);
 		}
 
 		img {
 			background-color: var(--table-header-background);
 			border-radius: var(--cards-border-width, var(--table-border-width));
-			aspect-ratio: var(--cards-table-aspect-ratio);
 
 			vertical-align: middle;
 			width: 100%;
+
+     aspect-ratio: var(--cards-table-aspect-ratio);
+     object-fit: var(--cards-table-fit);
 
 			/* Reset */
 			max-width: none !important;
@@ -101,11 +106,11 @@ Support my work: https://github.com/sponsors/kepano
 	}
 }
 
-/* TABLE: Image aspect ratio */
-.cards-square {
-	--cards-table-aspect-ratio: 1 / 1;
+.cards-contain {
+	--cards-table-fit: contain;
 }
 
+/* TABLE: Image aspect ratio */
 .cards-banner {
 	--cards-table-aspect-ratio: 2 / 1;
 }
@@ -115,8 +120,7 @@ Support my work: https://github.com/sponsors/kepano
 }
 
 /* LIST */
-.list-cards.markdown-preview-view
-	.el-ul
+.list-cards.markdown-preview-view .el-ul
 	> .has-list-bullet:not(.contains-task-list) {
 	/* Layout */
 

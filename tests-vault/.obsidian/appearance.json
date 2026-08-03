@@ -1,0 +1,11 @@
+{
+  "enabledCssSnippets": [
+    "Wides",
+    "No Mobile Blur",
+    "Fixes",
+    "Embeds",
+    "Images"
+  ],
+  "showRibbon": false,
+  "showViewHeader": false
+}
