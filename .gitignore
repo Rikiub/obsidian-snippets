@@ -21,6 +21,6 @@ pnpm-debug.log*
 .DS_Store
 
 # obsidian specific
-*/.obsidian/workspace.json
-*/.obsidian/workspace-mobile.json
-*/.obsidian/snippets
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+**/.obsidian/snippets

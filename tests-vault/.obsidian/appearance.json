@@ -7,5 +7,6 @@
     "Images"
   ],
   "showRibbon": false,
-  "showViewHeader": false
+  "showViewHeader": false,
+  "theme": "system"
 }
