@@ -1,6 +1,6 @@
-<script setup>
-    import "./styles.css";
-</script>
+---
+title: Image Shapes
+---
 
 # Image Shapes
 

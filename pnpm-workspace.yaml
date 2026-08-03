@@ -3,3 +3,6 @@ packages:
   - "snippets"
 allowBuilds:
   esbuild: true
+  sharp: true
+overrides:
+  vite: "^7.0.0"
