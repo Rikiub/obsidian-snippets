@@ -9,12 +9,12 @@ license: MIT
 /* Properties */
 body {
 	--image-align-max-width: 50%;
-	--image-align-margin: 0.6em;
-	
+	--image-align-margin: var(--p-spacing);
+
 	--image-align-placeholder-icon: "⇆";
-	--image-align-placeholder-color: var(--text-faint);
-	--image-align-placeholder-color-active: var(--text-muted);
-	
+	--image-align-placeholder-color: var(--icon-color);
+	--image-align-placeholder-color-active: var(--icon-color-active);
+
 	--image-default-width: 340px;
 	--image-banner-width-ratio: 3;
 }
@@ -136,7 +136,18 @@ body {
 		width: 100%;
 	}
 
-	/* Left & Right */
+	/* Align Left/Right */
+
+	/* Mobile Only */
+	@container (max-width: 440px) {
+
+		/* Align Live Preview margin with Reading View */
+		&.markdown-source-view .image-embed:has(img[alt~="left"], img[alt~="right"]) {
+			margin-bottom: 5px;
+		}
+	}
+
+	/* Desktop Only */
 	@container (min-width: 440px) {
 
 		/* Float to Left */
@@ -145,7 +156,7 @@ body {
 			float: left;
 			max-width: var(--image-align-max-width);
 			margin-right: var(--image-align-margin);
-			
+
 			/* Clickleable Image */
 			position: relative;
 			z-index: 1;
@@ -163,21 +174,23 @@ body {
 			z-index: 1;
 		}
 
-		/* Ghost Placeholder for Live Preview Line */
+		/* Hint Icon for Live Preview Line */
 		&.markdown-source-view {
 			.cm-line:has(img[alt~="left"], img[alt~="right"]) {
 				&::before {
 					content: var(--image-align-placeholder-icon);
 					color: var(--image-align-placeholder-color);
-	
-					/* Prevents the cursor from getting stuck on the placeholder text */
+					opacity: var(--icon-opacity);
+
+					/* Prevents the cursor from getting stuck on the hint icon */
 					user-select: none;
 					pointer-events: none;
 				}
 
-				/* Highlight the placeholder text when the user's cursor is actively on that line */
+				/* Highlight the hint icon when the user's cursor is actively on that line */
 				&.cm-active::before {
 					color: var(--image-align-placeholder-color-active);
+					opacity: var(--icon-opacity-active);
 				}
 			}
 		}
